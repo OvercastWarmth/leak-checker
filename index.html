@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Leak Checker</title>
     <script>
-        function check() {
-            document.getElementById("result").innerText = "Your input was found in the library of babel! It is therefore leaked on the internet."
+      function check() {
+        let notice;
+        if (/^([a-z]|[0-9]| |,|\.)+$/.test(document.getElementById("input").value)) {
+          notice = "Your input was found in the library of babel! It is therefore leaked on the internet.";
+        } else {
+          notice = "Input not found, you are safe!";
         }
-        </script>
-</head>
-<body>
+        document.getElementById("result").innerText = notice;
+      }
+    </script>
+  </head>
+  <body>
     <h3>Input the string to check:</h3>
-    <input type="text"> <button onclick="check()">Check</button>
+    <input type="text" id="input" /> <button onclick="check()">Check</button>
     <h1 id="result"></h1>
-</body>
+  </body>
 </html>
