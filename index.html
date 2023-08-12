@@ -7,7 +7,7 @@
     <script>
       function check() {
         let notice;
-        if (/^([a-z]|[0-9]| |,|\.)+$/.test(document.getElementById("input").value)) {
+        if (/^[a-z0-9 ,.]*$/.test(document.getElementById("input").value)) {
           notice = "Your input was found in the library of babel! It is therefore leaked on the internet.";
         } else {
           notice = "Input not found, you are safe!";
